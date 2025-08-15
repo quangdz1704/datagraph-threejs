@@ -156,7 +156,7 @@ const MidnightSky: React.FC = () => {
   }, []);
 
   // Rotate the entire star field slowly
-  useFrame((state) => {
+  useFrame((_state) => {
     if (groupRef.current) {
       groupRef.current.rotation.y += 0.0003; // Reduced from 0.001 to 0.0003
       groupRef.current.rotation.x += 0.0001; // Reduced from 0.0005 to 0.0001
@@ -279,7 +279,7 @@ const Bubble: React.FC<BubbleProps> = ({ data, position, onClick }) => {
 // Rotating Sphere Component
 const RotatingSphere: React.FC = () => {
   const groupRef = useRef<THREE.Group>(null);
-  const [autoRotate, setAutoRotate] = useState(true);
+  const [autoRotate, _setAutoRotate] = useState(true);
 
   // Calculate positions using spherical distribution
   const bubblePositions = useMemo(() => {
